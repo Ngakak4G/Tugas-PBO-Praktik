@@ -1,0 +1,31 @@
+#Multilevel Inheritance
+
+class ComputerPart: #Class induk
+    def __init__(self,pabrikan,nama,harga): #Dengan metode __Init__ menyimpan parameter self,pabrikan,nama,harga
+        self.pabrikan =pabrikan #Atribut public
+        self.nama = nama#Atribut public
+        self.harga = harga #Atribut public
+
+class Processor(ComputerPart): #class anak dari class ComputerPart
+    def __init__(self,pabrikan,nama,harga):
+        super().__init__(pabrikan,nama,harga) #Fungsi super untuk mengacu ke class induk (class ComputerPart)
+        
+
+class RandomAccessMemory(Processor): #Class anak dari class Processor
+    def __init__(self,pabrikan,nama,harga,kapasitas):
+        super().__init__(pabrikan,nama,harga)  #Fungsi super untuk mengacu ke class induk (class ComputerPart)
+        self.kapasitas = kapasitas #Atribut public
+
+# class HardDiskSATA(RandomAccessMemory):
+#     def __init__(self,pabrikan,nama,harga,kapasitas,rpm):
+#         super().__init__(pabrikan,nama,harga)
+#         self.kapasitas = kapasitas
+#         self.rpm = rpm
+
+# p = Processor("Intel","Core i7 7740X",4350000,4," 4.3GHZ")
+# print("Processor",p.nama,"Harga Rp.",p.harga,"pabrikan dari",p.pabrikan)
+
+r =RandomAccessMemory("Corsair","Corsair Venggegance",1242000,"16 GB")
+print("Ram",r.nama,"harga",r.harga,"Kapasitas",r.kapasitas,"pabrikan dari",r.pabrikan)
+
+
